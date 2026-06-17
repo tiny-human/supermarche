@@ -1,0 +1,20 @@
+CRITICAL - 2026-06-17 06:20:18 --> Error: Class "CodeIgniter\Database\sqlite3\Connection" not found
+[Method: CLI, Route: migrate]
+in SYSTEMPATH/Database/Database.php on line 147.
+ 1 SYSTEMPATH/Database/Database.php(61): CodeIgniter\Database\Database->initDriver()
+ 2 SYSTEMPATH/Database/Config.php(82): CodeIgniter\Database\Database->load()
+ 3 SYSTEMPATH/Common.php(391): CodeIgniter\Database\Config::connect()
+ 4 SYSTEMPATH/Database/MigrationRunner.php(156): db_connect()
+ 5 SYSTEMPATH/Config/Services.php(421): CodeIgniter\Database\MigrationRunner->__construct()
+ 6 SYSTEMPATH/Config/BaseService.php(325): CodeIgniter\Config\Services::migrations()
+ 7 SYSTEMPATH/Config/BaseService.php(264): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(416): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(334): CodeIgniter\Config\Services::migrations()
+10 SYSTEMPATH/Config/BaseService.php(203): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Common.php(1078): CodeIgniter\Config\BaseService::get()
+12 SYSTEMPATH/Commands/Database/Migrate.php(73): service()
+13 SYSTEMPATH/CLI/Commands.php(74): CodeIgniter\Commands\Database\Migrate->run()
+14 SYSTEMPATH/CLI/Console.php(47): CodeIgniter\CLI\Commands->run()
+15 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
+16 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand()
+17 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark()
