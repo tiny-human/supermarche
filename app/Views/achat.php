@@ -10,7 +10,7 @@
 <h1>Saisie des achats</h1>
 
 <div class="info">
-    <strong>Caisse :</strong> <?= session()->get('caisse_numero') ?>
+    <strong>Caisse :</strong> <?= session()->get('caisse_id') ?>
 </div>
 
 <form id="form_achat" action="<?= base_url('achat/cloturer') ?>" method="post">
