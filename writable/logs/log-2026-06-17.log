@@ -29,3 +29,16 @@ in APPPATH\Controllers\CaisseController.php on line 20.
  6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  8 SYSTEMPATH\rewrite.php(44): require_once('C:\\S4\\SI\\supermarket\\supermarche\\public\\index.php')
+CRITICAL - 2026-06-17 08:02:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "achat/saisie.php"
+[Method: GET, Route: achat]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/AchatController.php(17): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AchatController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/itu/s4/SI/caisse/public/index.php')
