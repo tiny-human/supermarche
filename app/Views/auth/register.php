@@ -1,26 +1,35 @@
-<?= $this->extend('layout') ?>
-<?= $this->section('title') ?>Inscription<?= $this->endSection() ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte — Caisse</title>
+    <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
+</head>
+<body>
+<div class="page-centree">
+    <div class="carte-centree">
+        <h1>Créer un compte</h1>
 
-<?= $this->section('content') ?>
-<h1 class="page-title">Créer un compte</h1>
-<p class="page-sub">Rejoignez le blog en quelques secondes.</p>
+        <?php if (session()->getFlashdata('error')): ?>
+            <p class="erreur"><?= session()->getFlashdata('error') ?></p>
+        <?php endif; ?>
 
-<div class="card form-card">
-    <form method="post" action="/register">
-        <div class="field">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-        </div>
-        <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="vous@exemple.mg" required>
-        </div>
-        <div class="field">
-            <label for="mot_de_passe">Mot de passe</label>
-            <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="••••••••" required>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
-    </form>
-    <p class="muted-note">Déjà inscrit ? <a href="/login">Se connecter</a></p>
+        <form method="post" action="<?= base_url('register') ?>">
+            <?= csrf_field() ?>
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" placeholder="Votre nom" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+
+        <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--texte-doux)">
+            Déjà inscrit ? <a href="<?= base_url('login') ?>">Se connecter</a>
+        </p>
+    </div>
 </div>
-<?= $this->endSection() ?>
+</body>
+</html>

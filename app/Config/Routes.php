@@ -1,25 +1,19 @@
 <?php
-
 use CodeIgniter\Router\RouteCollection;
-
-/**
- * @var RouteCollection $routes
- */
-$routes->get('/', 'Articles::index');
+/** @var RouteCollection $routes */
 
 // Authentification
-$routes->get('register', 'Auth::register');
-$routes->post('register', 'Auth::register');
-$routes->get('login', 'Auth::login');
-$routes->post('login', 'Auth::login');
-$routes->get('logout', 'Auth::logout');
+$routes->get('/',       'AuthController::index');
+$routes->post('/',      'AuthController::login');
+$routes->get('login',   'AuthController::index');
+$routes->post('login',  'AuthController::login');
+$routes->get('logout',  'AuthController::logout');
 
-// Articles
-$routes->get('articles', 'Articles::index');
-$routes->get('articles/create', 'Articles::create');
-$routes->post('articles/store', 'Articles::store');
-$routes->get('articles/delete/(:num)', 'Articles::delete/$1');
+// Caisse
+$routes->get('caisse',          'CaisseController::index');
+// Bug 2 corrigé : caisse/valider correspond à la vue ET au contrôleur
+$routes->post('caisse/valider', 'CaisseController::valider');
 
-// Administration
-$routes->get('admin', 'Admin::dashboard');
-$routes->get('admin/delete/(:num)', 'Admin::deleteUser/$1');
+// Achat
+$routes->get('achat',           'AchatController::index');
+$routes->post('achat/cloturer', 'AchatController::cloturer');
