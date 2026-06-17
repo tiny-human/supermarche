@@ -8,11 +8,18 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Articles::index');
 
 // Authentification
-$routes->get('register', 'Auth::register');
-$routes->post('register', 'Auth::register');
-$routes->get('login', 'Auth::login');
-$routes->post('login', 'Auth::login');
-$routes->get('logout', 'Auth::logout');
+$routes->get('register', 'AuthController::register');
+$routes->post('register', 'AuthController::register');
+$routes->get('login', 'AuthController::index');
+$routes->post('login', 'AuthController::login');
+$routes->get('logout', 'AuthController::logout');
+
+// Caisse
+$routes->get('caisse', 'CaisseController::index');
+$routes->post('caisse/valider', 'CaisseController::valider');
+
+// Achat
+$routes->get('achat', 'AchatController::index');
 
 // Articles
 $routes->get('articles', 'Articles::index');

@@ -18,3 +18,14 @@ in SYSTEMPATH/Database/Database.php on line 147.
 15 SYSTEMPATH/Boot.php(442): CodeIgniter\CLI\Console->run()
 16 SYSTEMPATH/Boot.php(166): CodeIgniter\Boot::runCommand()
 17 ROOTPATH/spark(87): CodeIgniter\Boot::bootSpark()
+CRITICAL - 2026-06-17 04:26:41 --> ErrorException: Undefined variable $caisse
+[Method: POST, Route: caisse/valider]
+in APPPATH\Controllers\CaisseController.php on line 20.
+ 1 APPPATH\Controllers\CaisseController.php(20): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $caisse', 'C:\\S4\\SI\\supermarket\\supermarche\\app\\Controllers\\CaisseController.php', 20)
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaisseController->valider()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaisseController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\S4\\SI\\supermarket\\supermarche\\public\\index.php')
