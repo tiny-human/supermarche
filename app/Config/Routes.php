@@ -19,6 +19,10 @@ $routes->get('logout', 'AuthController::logout');
 $routes->get('caisse', 'CaisseController::index');
 $routes->post('caisse/valider', 'CaisseController::valider');
 
+// Achat
+$routes->get('achat', 'AchatController::index');
+$routes->post('achat/cloturer', 'AchatController::cloturer');
+
 
 // Articles
 $routes->get('articles', 'Articles::index');
