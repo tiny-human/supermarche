@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Créer un compte — Caisse</title>
+    <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
 </head>
 <body>
-    <h1 class="page-title">Créer un compte</h1>
-<p class="page-sub">Rejoignez le blog en quelques secondes.</p>
+<div class="page-centree">
+    <div class="carte-centree">
+        <h1>Créer un compte</h1>
 
-    <div class="card form-card">
-        <form method="post" action="/register">
-            <div class="field">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-            </div>
-            <div class="field">
-                <label for="mot_de_passe">Mot de passe</label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="••••••••" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
+        <?php if (session()->getFlashdata('error')): ?>
+            <p class="erreur"><?= session()->getFlashdata('error') ?></p>
+        <?php endif; ?>
+
+        <form method="post" action="<?= base_url('register') ?>">
+            <?= csrf_field() ?>
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" placeholder="Votre nom" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+            <button type="submit">S'inscrire</button>
         </form>
-        <p class="muted-note">Déjà inscrit ? <a href="/login">Se connecter</a></p>
+
+        <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--texte-doux)">
+            Déjà inscrit ? <a href="<?= base_url('login') ?>">Se connecter</a>
+        </p>
     </div>
+</div>
 </body>
 </html>

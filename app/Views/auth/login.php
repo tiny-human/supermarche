@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Connexion — Caisse</title>
+    <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
 </head>
 <body>
-    <?= $this->section('content') ?>
-<h1 class="page-title">Connexion</h1>
-<p class="page-sub">Accédez à votre espace.</p>
+<div class="page-centree">
+    <div class="carte-centree">
+        <h1>Connexion</h1>
 
-    <div class="card form-card">
-        <form method="post" action="/login">
-            <div class="field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="vous@exemple.mg" required>
-            </div>
-            <div class="field">
-                <label for="mot_de_passe">Mot de passe</label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="••••••••" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+        <?php if (session()->getFlashdata('error')): ?>
+            <p class="erreur"><?= session()->getFlashdata('error') ?></p>
+        <?php endif; ?>
+
+        <form method="post" action="<?= base_url('login') ?>">
+            <?= csrf_field() ?>
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" name="username" placeholder="admin" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+            <p style="font-size:12px; color:var(--texte-doux); margin-top:-8px;">
+                Identifiants disponibles : <strong>admin:admin123</strong> ou <strong>caissier:caisse123</strong>
+            </p>
+            <button type="submit">Se connecter</button>
         </form>
-        <p class="muted-note">Pas de compte ? <a href="/register">Créer un compte</a></p>
     </div>
-
+</div>
 </body>
 </html>

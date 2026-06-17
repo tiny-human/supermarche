@@ -7,23 +7,27 @@ class CaisseController extends BaseController
     public function index()
     {
         $caisseModel = new CaisseModel();
-        $caisses = $caisseModel->findAll();
-
-        return view('caisse/caisse', ['caisses' => $caisses]);
+        return view('caisse/caisse', [
+            'caisses' => $caisseModel->findAll()
+        ]);
     }
 
     public function valider()
     {
-        $caisseId = $this->request->getPost('caisse');
+        // Bug 1 corrigé : caisse_id au lieu de caisse
+        $caisseId = $this->request->getPost('caisse_id');
 
         if (!$caisseId) {
-            return redirect()->to('/caisse')->with('error', 'Aucune caisse sélectionnée.');
+            return redirect()->to('caisse')->with('error', 'Aucune caisse sélectionnée.');
         }
 
-        // On stocke bien l'ID en session
-        session()->set('caisse_id', $caisseId);
-        
-        // Redirection propre vers l'URL /achat
-        return redirect()->to('/achat');
+        $caisseModel = new CaisseModel();
+        $caisse      = $caisseModel->find($caisseId);
+
+        // Bug 4 corrigé : on stocke aussi caisse_numero
+        session()->set('caisse_id',     $caisse['id']);
+        session()->set('caisse_numero', $caisse['numero']);
+
+        return redirect()->to('achat');
     }
 }
