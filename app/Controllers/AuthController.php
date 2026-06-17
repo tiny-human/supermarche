@@ -10,7 +10,7 @@ class AuthController extends BaseController
     public function index()
     {
         // Si déjà connecté, on redirige vers le dashboard
-        if (session()->get('isLoggedIn')) {
+        if (session()->get('logged_in')) {
             return redirect()->to('/' . session()->get('role') . '/dashboard');
         }
         return view('auth/login');
@@ -40,7 +40,7 @@ class AuthController extends BaseController
                     'email'         => $user['email'],
                     'role'          => $user['role'],
                     'departement_id'=> $user['departement_id'],
-                    'isLoggedIn'    => TRUE,
+                    'logged_in'     => TRUE,
                 ];
                 
                 $session->set($ses_data);
